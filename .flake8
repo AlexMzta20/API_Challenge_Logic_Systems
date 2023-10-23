@@ -1,0 +1,15 @@
+[flake8]
+# Define la longitud máxima de línea permitida. Cualquier línea de código que supere este límite causará una advertencia.
+max-line-length = 150
+
+# Si se establece en True, Flake8 mostrará el código fuente que causa cada advertencia o error.
+show-source = True
+
+# Define los archivos o directorios que Flake8 debe ignorar. En este caso, se ignorarán todos los archivos en el directorio .git y cualquier archivo que contenga la palabra "migrations".
+exclude = .git, *migrations*
+
+# Si se establece en True, Flake8 mostrará el número total de advertencias y errores.
+count = True
+
+# Si se establece en True, Flake8 mostrará estadísticas sobre el número y tipo de advertencias y errores.
+statistics = True

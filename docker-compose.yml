@@ -1,0 +1,24 @@
+version: '4.2.6' # Especifica la versión de Docker Compose a utilizar.
+
+services: # Define los servicios, es decir, los contenedores que se van a ejecutar.
+  db: # El nombre del servicio para la base de datos.
+    image: postgres # La imagen Docker a utilizar para este servicio.
+    environment: # Define las variables de entorno para el servicio.
+      POSTGRES_DB: programmersdb # El nombre de la base de datos PostgreSQL.
+      POSTGRES_USER: postgres # El nombre de usuario para la base de datos PostgreSQL.
+      POSTGRES_PASSWORD: alex13 # La contraseña para la base de datos PostgreSQL.
+    volumes: # Monta volúmenes en el contenedor.
+      - postgres_data:/var/lib/postgresql/data/ # Monta el volumen llamado "postgres_data" en la ruta especificada dentro del contenedor.
+
+  web: # El nombre del servicio para la aplicación web.
+    build: . # Construye la imagen Docker para este servicio utilizando el Dockerfile en el directorio actual.
+    command: python manage.py runserver 0.0.0.0:8000 # El comando a ejecutar cuando se inicia el contenedor.
+    volumes: # Monta volúmenes en el contenedor.
+      - .:/code # Monta el directorio actual en la ruta especificada dentro del contenedor.
+    ports: # Expone los puertos del contenedor al host.
+      - "8000:8000" # Mapea el puerto 8000 del host al puerto 8000 del contenedor.
+    depends_on: # Define las dependencias de este servicio.
+      - db # Este servicio depende del servicio "db".
+
+volumes:
+  postgres_data: # Define un volumen llamado "postgres_data".
