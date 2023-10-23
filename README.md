@@ -67,7 +67,7 @@ Finalmente, para eliminar alguna imagen, volumen o contenedor solo debemos utili
 ```
 
 # Docker-compose comandos
-Para el caso de Docker Compose, los comandos son bastante similares, comenzando por el de compilación.
+Para el caso de docker-compose, los comandos son bastante similares, comenzando por el de compilación.
 
 Primero debemos compilar el proyecto con docker-compose y el archivo no tiene algun nombre específico utilizamos:
 
